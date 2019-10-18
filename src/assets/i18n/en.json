@@ -1,0 +1,27 @@
+{
+  "LOGIN": {
+    "TITLE": "Internal system with operational tools.",
+    "SUBTITLE": "People management systems",
+    "SECOND_SUBTITLE": "(for training and application of standards)",
+    "FORM_TITLE": "Enter your credentials to enter.",
+    "FORM_USER": "User",
+    "FORM_PASSWORD": "Password",
+    "FORM_USER_ERROR": "Invalid user.",
+    "FORM_PASSWORD_ERROR": "Password is required.",
+    "FORM_KEEP_SESSION": "Do not log out when leaving.",
+    "FORM_BUTTON": "Enter",
+    "FORM_RECOVERY_BUTTON": "Recover password",
+    "ERRORS": {
+      "CREDENTIALS": "Las credenciales ingresadas son incorrectas. Por favor, intente nuevamente.",
+      "PRIVILEGES": "Su cuenta no tiene privilegios para acceder al sistema."
+    }
+  },
+  "GENERAL": {
+    "ERROR_TITLE": "Ha ocurrido un error",
+    "ERROR_MESSAGE": "Se ha producido un error inesperado, por favor, envíe el siguiente código al soporte técnico"
+  },
+  "AUTH": {
+    "CREDENTIALS_INVALID": "Las credenciales ingresadas son incorrectas. Por favor, intente nuevamente.",
+    "ERROR": "Disculpe"
+  }
+}

@@ -1,0 +1,43 @@
+<div fxFlexFill
+     fxLayout="column">
+  <mat-drawer-container fxFlex
+                        fxFlexLayout="column">
+
+    <mat-drawer #drawer
+                class="contents"
+                mode="over">
+      <button mat-raised-button
+              [routerLink]="['/master-page/map']"
+              routerLinkActive="router-link-active">Map</button>
+
+    </mat-drawer>
+
+    <mat-drawer-content fxLayout="column">
+
+      <div fxLayout="row"
+           fxLayoutAlign="center start">
+        <mat-toolbar color="primary"
+                     fxLayout="row"
+                     fxLayoutAlign="start center">
+          <button mat-icon-button
+                  (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+
+          <div fxLayout="row"
+               fxLayoutAlign="start center">
+            <img class="logo"
+                 src="assets/img/logo.svg"
+                 alt="">
+          </div>
+        </mat-toolbar>
+      </div>
+
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+
+    </mat-drawer-content>
+
+  </mat-drawer-container>
+</div>
