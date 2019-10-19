@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MasterPageComponent } from './master-page.component';
+import { MapComponent } from './map.component';
+import { MasterPageComponent } from '../master-page/master-page.component';
 
 const routes: Routes = [
   {
@@ -8,8 +9,8 @@ const routes: Routes = [
     component: MasterPageComponent,
     children: [
       {
-        path: 'map',
-        loadChildren: () => import('./map/map.module').then(m => m.MapModule)
+        path: '',
+        component: MapComponent
       }
     ]
   }
@@ -19,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MasterPageRoutingModule { }
+export class TrackingMapRoutingModule { }

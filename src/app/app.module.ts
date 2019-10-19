@@ -8,6 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppI18nService } from './app-i18n.service';
 import { AgmCoreModule } from '@agm/core';
+import { MasterPageModule } from './master-page/master-page.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,7 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    MasterPageModule
   ],
   providers: [AppI18nService],
   bootstrap: [AppComponent]

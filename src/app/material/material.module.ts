@@ -12,6 +12,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatChipsModule } from '@angular/material/chips';
 
 const MODULES = [
   MatCardModule,
@@ -27,7 +30,10 @@ const MODULES = [
   MatToolbarModule,
   MatIconModule,
   ScrollDispatchModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatListModule,
+  MatExpansionModule,
+  MatChipsModule
 ];
 
 @NgModule({

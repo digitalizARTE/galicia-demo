@@ -1,0 +1,59 @@
+<div fxFlexFill
+     fxLayout="column">
+  <mat-sidenav-container fxFlex
+                         class="container"
+                         fxFlexLayout="column">
+
+    <!-- <mat-sidenav #left
+                 [(opened)]="openMessageSidebar"
+                 class="panel-content"
+                 mode="side"
+                 position="start">
+      Left Sidenav.
+    </mat-sidenav> -->
+    <mat-sidenav-content>
+
+      <mat-expansion-panel #expansionPanel>
+        <mat-expansion-panel-header>
+          <mat-panel-title *ngIf="expansionPanel.expanded">
+            Indicadores
+          </mat-panel-title>
+          <mat-panel-description *ngIf="!expansionPanel.expanded">
+
+            <mat-chip-list fxFlex
+                           fxLayout="row"
+                           fxLayoutAlign="space-around center">
+              <mat-chip *ngFor="let item of [1,2,3,4,5]">
+                Indicador {{item}}:&nbsp;$<strong>1.{{item}}MM</strong>
+              </mat-chip>
+            </mat-chip-list>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="kpis"
+             fxLayout="row"
+             fxLayoutAlign="space-around center">
+          <mat-card *ngFor="let item of [1,2,3,4,5]">
+            <mat-card-header>
+              <mat-card-title>Indicador {{item}}</mat-card-title>
+              <mat-card-subtitle>Este indicador muestra el valor de {{item}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <h1>$1.{{item}}MM</h1>
+            </mat-card-content>
+          </mat-card>
+
+        </div>
+      </mat-expansion-panel>
+
+      <div fxLayout="column"
+           class="container"
+           fxLayoutAlign="center center">
+        <div class="container">
+          <div id="map"></div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

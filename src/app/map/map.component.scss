@@ -1,0 +1,29 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+.panel-content {
+  padding: 50px;
+}
+#map {
+  height: 100%;
+  width: 100%;
+}
+.attendance-content {
+  width: 388px;
+}
+
+div.kpis {
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  mat-card {
+    min-width: 192px !important;
+    max-width: 256px !important;
+    min-height: 128px !important;
+    h1 {
+      font-size: 48px;
+      text-align: center;
+    }
+  }
+}
