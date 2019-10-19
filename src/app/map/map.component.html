@@ -16,7 +16,7 @@
       <mat-expansion-panel #expansionPanel>
         <mat-expansion-panel-header>
           <mat-panel-title *ngIf="expansionPanel.expanded">
-            Indicadores
+            KPIS
           </mat-panel-title>
           <mat-panel-description *ngIf="!expansionPanel.expanded">
 
@@ -24,7 +24,7 @@
                            fxLayout="row"
                            fxLayoutAlign="space-around center">
               <mat-chip *ngFor="let item of [1,2,3,4,5]">
-                Indicador {{item}}:&nbsp;$<strong>1.{{item}}MM</strong>
+                KPI {{item}}:&nbsp;$<strong>1.{{item}}MM</strong>
               </mat-chip>
             </mat-chip-list>
 
