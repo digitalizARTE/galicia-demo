@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MapComponent } from './map.component';
 import { MasterPageComponent } from '../master-page/master-page.component';
+import { MasterPageModule } from '../master-page/master-page.module';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [MasterPageModule, RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class TrackingMapRoutingModule { }
