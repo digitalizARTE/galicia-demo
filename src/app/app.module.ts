@@ -9,11 +9,18 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppI18nService } from './app-i18n.service';
 import { AgmCoreModule } from '@agm/core';
 import { MasterPageModule } from './master-page/master-page.module';
+import { ApiModule, Configuration } from 'src/api';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+
+export function ApiFactory() {
+  return new Configuration();
+}
+
 
 @NgModule({
   declarations: [
@@ -34,7 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    MasterPageModule
+    MasterPageModule,
+    ApiModule.forRoot(ApiFactory)
   ],
   providers: [AppI18nService],
   bootstrap: [AppComponent]

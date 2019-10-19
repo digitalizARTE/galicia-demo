@@ -4,25 +4,21 @@
                          class="container"
                          fxFlexLayout="column">
 
-    <!-- <mat-sidenav #left
-                 [(opened)]="openMessageSidebar"
-                 class="panel-content"
-                 mode="side"
-                 position="start">
-      Left Sidenav.
-    </mat-sidenav> -->
     <mat-sidenav-content>
 
-      <mat-expansion-panel #expansionPanel>
+      <mat-expansion-panel #expansionPanelKpis>
         <mat-expansion-panel-header>
-          <mat-panel-title *ngIf="expansionPanel.expanded">
-            KPIS
-          </mat-panel-title>
-          <mat-panel-description *ngIf="!expansionPanel.expanded">
-
-            <mat-chip-list fxFlex
+          <mat-panel-title *ngIf="expansionPanelKpis.expanded"
                            fxLayout="row"
-                           fxLayoutAlign="space-around center">
+                           fxLayoutAlign="start center">
+            <mat-icon>timeline</mat-icon>&nbsp; KPIS&nbsp;
+          </mat-panel-title>
+          <mat-panel-description *ngIf="!expansionPanelKpis.expanded"
+                                 fxLayout="row"
+                                 fxLayoutAlign="start center">
+            <mat-icon>timeline</mat-icon>&nbsp; KPIS&nbsp;
+
+            <mat-chip-list>
               <mat-chip *ngFor="let item of [1,2,3,4,5]">
                 KPI {{item}}:&nbsp;$<strong>1.{{item}}MM</strong>
               </mat-chip>
@@ -43,6 +39,69 @@
               <h1>$1.{{item}}MM</h1>
             </mat-card-content>
           </mat-card>
+
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel #expansionPanelFilters>
+        <mat-expansion-panel-header>
+          <mat-panel-title *ngIf="expansionPanelFilters.expanded"
+                           fxLayout="row"
+                           fxLayoutAlign="start center">
+            <mat-icon>filter_list</mat-icon>&nbsp;Filtros&nbsp;
+          </mat-panel-title>
+          <mat-panel-description *ngIf="!expansionPanelFilters.expanded"
+                                 fxLayout="row"
+                                 fxLayoutAlign="start center">
+            <mat-icon>filter_list</mat-icon>&nbsp;Filtros&nbsp;
+
+            <mat-chip-list>
+              <mat-chip *ngFor="let item of filters">
+                KPI {{item}}:&nbsp;$<strong>1.{{item}}MM</strong>
+              </mat-chip>
+            </mat-chip-list>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="filters"
+             fxLayout="column">
+          <div fxLayout="row"
+               fxLayoutAlign="start center"
+               fxLayoutGap="16px">
+            <mat-form-field [matTooltip]="categoriesTooltip">
+              <mat-label>Categorias</mat-label>
+              <mat-select [formControl]="categoriesCtrl"
+                          multiple>
+                <mat-option *ngFor="let item of categories"
+                            [value]="item">{{item}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Provincias</mat-label>
+              <mat-select [formControl]="statesCtrl"
+                          multiple>
+                <mat-option *ngFor="let item of states"
+                            [value]="item">{{item}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Ciudades</mat-label>
+              <mat-select [formControl]="citiesCtrl"
+                          multiple>
+                <mat-option *ngFor="let item of cities"
+                            [value]="item">{{item}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-chip-list>
+            <mat-chip *ngFor="let item of filters">
+              KPI {{item}}:&nbsp;$<strong>1.{{item}}MM</strong>
+            </mat-chip>
+          </mat-chip-list>
 
         </div>
       </mat-expansion-panel>
