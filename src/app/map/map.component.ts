@@ -33,6 +33,9 @@ export class MapComponent implements OnInit, OnDestroy {
 
   public categoriesTooltip: string;
 
+
+  private markers: any[];
+
   private merchants: MerchantData[] = [
     {
       'id': 500,
@@ -153,6 +156,11 @@ export class MapComponent implements OnInit, OnDestroy {
       citiesCtrl: []
     });
 
+    this.markers = this.merchants.map(x => new this.windows.google.maps.Marker({
+      position: new this.windows.google.maps.LatLng(parseFloat(x.lat), parseFloat(x.lng)),
+      map: this.map,
+      title: `${x.name} (${x.category})`
+    }));
   }
 
   ngOnDestroy(): void {
