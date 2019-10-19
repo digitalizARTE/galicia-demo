@@ -46,8 +46,8 @@ export class MapComponent implements OnInit, OnDestroy {
       'city': 'GENERAL PAZ',
       'state': 'CHACO',
       'zip': '7979',
-      'lat': '-33.899568',
-      'lng': '-11.272268'
+      'lat': '-34.594167',
+      'lng': '-58.553650'
     },
     {
       'id': 501,

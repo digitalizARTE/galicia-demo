@@ -9,18 +9,30 @@
       <mat-expansion-panel #expansionPanelKpis>
         <mat-expansion-panel-header>
           <mat-panel-title *ngIf="expansionPanelKpis.expanded"
-                           fxLayout="row"
+                           fxLayout="row wrap"
                            fxLayoutAlign="start center">
             <mat-icon>timeline</mat-icon>&nbsp; KPIS&nbsp;
           </mat-panel-title>
           <mat-panel-description *ngIf="!expansionPanelKpis.expanded"
-                                 fxLayout="row"
+                                 fxLayout="row wrap"
                                  fxLayoutAlign="start center">
             <mat-icon>timeline</mat-icon>&nbsp; KPIS&nbsp;
 
-            <mat-chip-list>
-              <mat-chip *ngFor="let item of [1,2,3,4,5]">
-                KPI {{item}}:&nbsp;$<strong>1.{{item}}MM</strong>
+            <mat-chip-list fxLayout="row wrap">
+              <mat-chip>
+                KPI 1:&nbsp;$<strong>1.3MM</strong>
+              </mat-chip>
+
+              <mat-chip>
+                KPI 2:&nbsp;$<strong>2.7MM</strong>
+              </mat-chip>
+
+              <mat-chip>
+                KPI 3:&nbsp;$<strong>1.6MM</strong>
+              </mat-chip>
+
+              <mat-chip>
+                KPI 4:&nbsp;$<strong>3.2MM</strong>
               </mat-chip>
             </mat-chip-list>
 
@@ -28,15 +40,50 @@
         </mat-expansion-panel-header>
 
         <div class="kpis"
-             fxLayout="row"
+             fxLayout="row wrap"
              fxLayoutAlign="space-around center">
-          <mat-card *ngFor="let item of [1,2,3,4,5]">
+          <mat-card class="kpi-card mat-elevation-z8">
             <mat-card-header>
-              <mat-card-title>Indicador {{item}}</mat-card-title>
-              <mat-card-subtitle>Este indicador muestra el valor de {{item}}</mat-card-subtitle>
+              <mat-card-title>Indicador 1</mat-card-title>
+              <mat-card-subtitle>Este indicador muestra el valor de 1</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-              <h1>$1.{{item}}MM</h1>
+              <h1>$1.3MM</h1>
+              <h3 class="kpi-up">3.7% &nbsp;<mat-icon inline>arrow_upward</mat-icon></h3>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="kpi-card mat-elevation-z8">
+            <mat-card-header>
+              <mat-card-title>Indicador 2</mat-card-title>
+              <mat-card-subtitle>Este indicador muestra el valor de 2</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <h1>$2.7MM</h1>
+              <h3 class="kpi-down">5.3% &nbsp;<mat-icon inline>arrow_downward</mat-icon></h3>
+            </mat-card-content>
+          </mat-card>
+
+
+          <mat-card class="kpi-card mat-elevation-z8">
+            <mat-card-header>
+              <mat-card-title>Indicador 3</mat-card-title>
+              <mat-card-subtitle>Este indicador muestra el valor de 3</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <h1>$1.6MM</h1>
+              <h3 class="kpi-down">10.0% &nbsp;<mat-icon inline>arrow_downward</mat-icon></h3>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="kpi-card mat-elevation-z8">
+            <mat-card-header>
+              <mat-card-title>Indicador 4</mat-card-title>
+              <mat-card-subtitle>Este indicador muestra el valor de 4</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <h1>$3.2MM</h1>
+              <h3 class="kpi-up">0.3% &nbsp;<mat-icon inline>arrow_upward</mat-icon></h3>
             </mat-card-content>
           </mat-card>
 
@@ -46,16 +93,16 @@
       <mat-expansion-panel #expansionPanelFilters>
         <mat-expansion-panel-header>
           <mat-panel-title *ngIf="expansionPanelFilters.expanded"
-                           fxLayout="row"
+                           fxLayout="row wrap"
                            fxLayoutAlign="start center">
             <mat-icon>filter_list</mat-icon>&nbsp;Filtros&nbsp;
           </mat-panel-title>
           <mat-panel-description *ngIf="!expansionPanelFilters.expanded"
-                                 fxLayout="row"
+                                 fxLayout="row wrap"
                                  fxLayoutAlign="start center">
             <mat-icon>filter_list</mat-icon>&nbsp;Filtros&nbsp;
-
-            <mat-chip-list>
+            
+            <mat-chip-list fxLayout="row wrap">
               <mat-chip *ngFor="let item of filters">
                 KPI {{item}}:&nbsp;$<strong>1.{{item}}MM</strong>
               </mat-chip>
@@ -66,7 +113,7 @@
 
         <div class="filters"
              fxLayout="column">
-          <div fxLayout="row"
+          <div fxLayout="row wrap"
                fxLayoutAlign="start center"
                fxLayoutGap="16px">
             <mat-form-field [matTooltip]="categoriesTooltip">
