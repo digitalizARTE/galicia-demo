@@ -148,7 +148,7 @@ export const mapStyle: Object[] = [
         'elementType': 'geometry',
         'stylers': [
             {
-                'color': '#c5dac6'
+                'color': '#ff6600'
             },
             {
                 'visibility': 'on'
