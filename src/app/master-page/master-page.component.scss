@@ -1,7 +1,9 @@
 
 .container { height: 100%; width: 100%; }
 
-.contents {  padding: 50px;}
+.contents {  
+  width: 250px;
+}
 
 .logo {
   max-width: 150px;
@@ -10,3 +12,4 @@
 .menu-icon {
   color: white !important;
 }
+
