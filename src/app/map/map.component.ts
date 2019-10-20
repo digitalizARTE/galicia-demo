@@ -36,6 +36,10 @@ export class MapComponent implements OnInit, OnDestroy {
 
   private markers: any[];
 
+  private heatCoors: any[] = [];
+
+  private HEATMAPLAYER: any = null;
+
   private merchants: MerchantData[] = [
     {
       'id': 500,
@@ -156,6 +160,8 @@ export class MapComponent implements OnInit, OnDestroy {
       citiesCtrl: []
     });
 
+    this.renderHeatmap();
+
     this.markers = this.merchants.map(x => new this.windows.google.maps.Marker({
       position: new this.windows.google.maps.LatLng(parseFloat(x.lat), parseFloat(x.lng)),
       map: this.map,
@@ -173,6 +179,45 @@ export class MapComponent implements OnInit, OnDestroy {
       center: this.getDefaultCoords(),
       control: {}
     };
+  }
+
+  public renderHeatmap(): void {
+    const map: any = this.map;
+
+    // tslint:disable-next-line:max-line-length
+    const dataMock = [{ 'lat': -34.556306, 'lng': -58.414168 }, { 'lat': -34.4379744, 'lng': -58.8359624 }, { 'lat': -34.814428, 'lng': -58.540793 }, { 'lat': -34.5792915, 'lng': -58.4392647 }, { 'lat': -34.5970889, 'lng': -58.3754798 }, { 'lat': -34.59886, 'lng': -58.371487 }, { 'lat': -34.6293992, 'lng': -58.442448 }, { 'lat': -34.564636, 'lng': -58.4610525 }, { 'lat': -34.6043712, 'lng': -58.3751437 }, { 'lat': -34.814428, 'lng': -58.540793 }, { 'lat': -34.814428, 'lng': -58.540793 }, { 'lat': -34.556306, 'lng': -58.414168 }, { 'lat': -34.5972399, 'lng': -58.4159819 }, { 'lat': -34.5608787, 'lng': -58.4633516 }, { 'lat': -34.605833, 'lng': -58.363611 }, { 'lat': -34.9040599, 'lng': -58.7325253 }, { 'lat': -34.5835554, 'lng': -58.4284781 }, { 'lat': -34.601895, 'lng': -58.3809039 }, { 'lat': -34.9040599, 'lng': -58.7325253 }, { 'lat': -34.5932838, 'lng': -58.5958274 }, { 'lat': -34.5864871, 'lng': -58.4122418 }, { 'lat': -34.6511027, 'lng': -58.5371238 }, { 'lat': -34.556306, 'lng': -58.414168 }, { 'lat': -34.6028193, 'lng': -58.412786 }];
+    this.windows = <any>window;
+    dataMock
+      .forEach((x) => {
+        this.heatCoors.push(new this.windows.google.maps.LatLng(x.lat, x.lng));
+      });
+    this.windows = <any>window;
+    this.HEATMAPLAYER = new this.windows.google.maps.visualization.HeatmapLayer({
+      data: this.heatCoors,
+      map: map
+    });
+
+    const GRADIENT: string[] = [
+      'rgba(0, 255, 255, 0)',
+      'rgba(0, 255, 255, 1)',
+      'rgba(0, 191, 255, 1)',
+      'rgba(0, 127, 255, 1)',
+      'rgba(0, 63, 255, 1)',
+      'rgba(0, 0, 255, 1)',
+      'rgba(0, 0, 223, 1)',
+      'rgba(0, 0, 191, 1)',
+      'rgba(0, 0, 159, 1)',
+      'rgba(0, 0, 127, 1)',
+      'rgba(63, 0, 91, 1)',
+      'rgba(127, 0, 63, 1)',
+      'rgba(191, 0, 31, 1)',
+      'rgba(255, 0, 0, 1)'
+    ];
+
+    this.HEATMAPLAYER.set('gradient', GRADIENT);
+    this.HEATMAPLAYER.set('opacity', null);
+    this.HEATMAPLAYER.set('radius', null);
+    this.HEATMAPLAYER.set('maxIntensity', 2);
   }
 
   /**
